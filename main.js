@@ -1,24 +1,27 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+import * as Phazer from 'phaser';
+import StartScreen from './assets/modules/start_scene/start_scene.js';
 
-setupCounter(document.querySelector('#counter'))
+const config = {
+  type: Phaser.AUTO,
+  width: 800,
+  height: 400,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: {
+        y: 200
+      }
+    }
+  }
+};
+
+
+let Game = new Phaser.Game(config);
+export default Game
+
+
+Game.scene.add('StartScreen', StartScreen);
+Game.scene.start('StartScreen', { mode: "active" });
+
