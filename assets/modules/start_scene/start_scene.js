@@ -10,7 +10,7 @@ export default class myTest extends Phaser.Scene {
 
     preload() {
 
-        //this.load.image('star', myImg);
+       //load packs here
     }
 
     create() {
