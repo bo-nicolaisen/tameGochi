@@ -1,16 +1,16 @@
 
 export default class Gochi extends Phaser.GameObjects.Container {
 
-    #myGochi;
+  #myGochi;
   #myData;
   #myScene; //the scene that called this class
 
-  constructor(scene, myData) {
-    super(scene,scene.scale.width / 2, scene.scale.height -150, [])
+  constructor (scene, myData) {
+    super(scene, scene.scale.width / 2, scene.scale.height - 200, [])
     this.#myScene = scene;
     this.state = 1;
 
-    this.#myData=myData;
+    this.#myData = myData;
 
     this.name = myData.name;
     this.state = myData.state;
@@ -24,13 +24,13 @@ export default class Gochi extends Phaser.GameObjects.Container {
 
     console.log("Hello from Gochi");
 
-    this.#myGochi = this.scene.add.sprite(0, 0, "star");
-    this.#myGochi.setOrigin(0.5, 0.5);
-    this.#myGochi.setScale(0.1);
+    this.#myGochi = this.scene.add.sprite(0, 0, "gochiImg");
+
     this.add([this.#myGochi]);
+
   }
 
- 
+
   updateGochi() {
     console.log("update" + this.name);
   }
